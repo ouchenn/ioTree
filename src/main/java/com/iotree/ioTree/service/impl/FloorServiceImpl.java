@@ -18,12 +18,12 @@ public class FloorServiceImpl implements IFloorService {
     private FloorRepository floorRepo;
 
     @Override
-    public House addFloor(Floor floor) {
+    public Floor addFloor(Floor floor) {
         return null;
     }
 
     @Override
-    public House getFloor(String id) {
+    public Floor getFloor(String id) {
         return null;
     }
 

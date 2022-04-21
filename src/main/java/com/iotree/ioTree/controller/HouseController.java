@@ -38,7 +38,7 @@ public class HouseController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<House>> findAll(){
+    public ResponseEntity<List<House>> All(){
         return ResponseEntity.ok(houseService.getAllHouses());
     }
 }

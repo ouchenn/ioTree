@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface IFloorService {
 
-    House addFloor(Floor floor);
+    Floor addFloor(Floor floor);
 
-    House getFloor(String id);
+    Floor getFloor(String id);
 
     Floor updateFloor(Floor floor);
 
