@@ -21,7 +21,7 @@ public class DeviceController {
     }
 
     @GetMapping("/{id}")
-    public Device findDevice(@PathVariable String id){
+    public Device get(@PathVariable String id){
         return deviceService.getDevice(id);
     }
 
@@ -36,7 +36,7 @@ public class DeviceController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Device>> findAll(){
+    public ResponseEntity<List<Device>> getAll(){
         return ResponseEntity.ok(deviceService.getAllDevices());
     }
 }

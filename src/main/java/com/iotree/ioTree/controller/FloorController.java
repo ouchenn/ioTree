@@ -21,7 +21,7 @@ public class FloorController {
     }
 
     @GetMapping("/{id}")
-    public Floor findFloor(@PathVariable String id){
+    public Floor get(@PathVariable String id){
         return floorService.getFloor(id);
     }
 
@@ -36,7 +36,7 @@ public class FloorController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Floor>> findAll(){
+    public ResponseEntity<List<Floor>> getAll(){
         return ResponseEntity.ok(floorService.getAllFloors());
     }
 }

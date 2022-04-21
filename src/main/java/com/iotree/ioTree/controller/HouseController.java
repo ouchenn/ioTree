@@ -18,27 +18,27 @@ public class HouseController {
     private HouseServiceImpl houseService;
 
     @PostMapping()
-    public House addHouse(@RequestBody House house){
+    public House add(@RequestBody House house){
         return houseService.addHouse(house);
     }
 
     @GetMapping("/{id}")
-    public House findHouse(@PathVariable String id){
+    public House get(@PathVariable String id){
         return houseService.getHouse(id);
     }
 
     @PutMapping()
-    public House updateHouse(@RequestBody House house){
+    public House update(@RequestBody House house){
         return houseService.updateHouse(house);
     }
 
     @DeleteMapping("/{id}")
-    public String deleteHouse(@PathVariable String id){
+    public String delete(@PathVariable String id){
         return houseService.deleteHouse(id);
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<House>> All(){
+    public ResponseEntity<List<House>> getAll(){
         return ResponseEntity.ok(houseService.getAllHouses());
     }
 }

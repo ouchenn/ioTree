@@ -21,7 +21,7 @@ public class RoomController {
     }
 
     @GetMapping("/{id}")
-    public Room findRoom(@PathVariable String id){
+    public Room get(@PathVariable String id){
         return roomService.getRoom(id);
     }
 
@@ -36,7 +36,7 @@ public class RoomController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Room>> findAll(){
+    public ResponseEntity<List<Room>> getAll(){
         return ResponseEntity.ok(roomService.getAllRooms());
     }
 }

@@ -16,17 +16,17 @@ public class AppUserController {
     private AppUserServiceImpl appUserService;
 
     @PostMapping()
-    public AppUser addUser(@RequestBody AppUser user) {
+    public AppUser add(@RequestBody AppUser user) {
         return appUserService.createUser(user);
     }
 
     @GetMapping("/{id}")
-    public AppUser findUser(@PathVariable String id) {
+    public AppUser get(@PathVariable String id) {
         return appUserService.getUser(id);
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<AppUser>> findAll() {
+    public ResponseEntity<List<AppUser>> getAll() {
         List<AppUser> users = appUserService.getAllUsers();
         return  ResponseEntity.ok(users);
     }
