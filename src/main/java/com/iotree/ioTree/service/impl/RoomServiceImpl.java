@@ -1,8 +1,10 @@
 package com.iotree.ioTree.service.impl;
 
 import com.iotree.ioTree.domain.Room;
+import com.iotree.ioTree.repository.RoomRepository;
 import com.iotree.ioTree.service.IRoomService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,10 @@ import java.util.List;
 @Slf4j
 @Service
 public class RoomServiceImpl implements IRoomService {
+
+    @Autowired
+    private RoomRepository roomRepo;
+
     @Override
     public Room addRoom(Room room) {
         return null;

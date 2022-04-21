@@ -1,8 +1,10 @@
 package com.iotree.ioTree.service.impl;
 
 import com.iotree.ioTree.domain.Device;
+import com.iotree.ioTree.repository.DeviceRepository;
 import com.iotree.ioTree.service.IDeviceService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +12,10 @@ import java.util.List;
 @Slf4j
 @Service
 public class DeviceServiceImpl implements IDeviceService {
+
+    @Autowired
+    private DeviceRepository deviceRepo;
+
     @Override
     public Device addDevice(Device device) {
         return null;
