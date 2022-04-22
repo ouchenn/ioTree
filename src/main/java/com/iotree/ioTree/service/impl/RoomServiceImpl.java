@@ -18,26 +18,31 @@ public class RoomServiceImpl implements IRoomService {
 
     @Override
     public Room addRoom(Room room) {
-        return null;
+        return roomRepo.save(room);
     }
 
     @Override
     public Room getRoom(String id) {
-        return null;
+        return roomRepo.findById(id).orElse(null);
     }
 
     @Override
     public Room updateRoom(Room room) {
-        return null;
+        Room getRoom = roomRepo.findById(room.getId()).orElse(null);
+        if(getRoom != null){
+            roomRepo.save(room);
+        }
+        return room;
     }
 
     @Override
     public String deleteRoom(String id) {
-        return null;
+        roomRepo.deleteById(id);
+        return "Room deleted successfully!";
     }
 
     @Override
     public List<Room> getAllRooms() {
-        return null;
+        return roomRepo.findAll();
     }
 }

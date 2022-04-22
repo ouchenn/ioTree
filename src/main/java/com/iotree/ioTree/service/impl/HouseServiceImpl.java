@@ -18,26 +18,31 @@ public class HouseServiceImpl implements IHouseService {
 
     @Override
     public House addHouse(House house) {
-        return null;
+        return houseRepo.save(house);
     }
 
     @Override
     public House getHouse(String id) {
-        return null;
+        return houseRepo.findById(id).orElse(null);
     }
 
     @Override
     public House updateHouse(House house) {
-        return null;
+        House getHouse = houseRepo.findById(house.getId()).orElse(null);
+        if(getHouse != null){
+            houseRepo.save(house);
+        }
+        return house;
     }
 
     @Override
     public String deleteHouse(String id) {
-        return null;
+        houseRepo.deleteById(id);
+        return "House deleted successfully!";
     }
 
     @Override
     public List<House> getAllHouses() {
-        return null;
+        return houseRepo.findAll();
     }
 }

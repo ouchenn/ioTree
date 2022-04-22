@@ -19,26 +19,31 @@ public class FloorServiceImpl implements IFloorService {
 
     @Override
     public Floor addFloor(Floor floor) {
-        return null;
+        return floorRepo.save(floor);
     }
 
     @Override
     public Floor getFloor(String id) {
-        return null;
+        return floorRepo.findById(id).orElse(null);
     }
 
     @Override
     public Floor updateFloor(Floor floor) {
-        return null;
+        Floor getFloor = floorRepo.findById(floor.getId()).orElse(null);
+        if(getFloor != null){
+            floorRepo.save(floor);
+        }
+        return floor;
     }
 
     @Override
     public String deleteFloor(String id) {
-        return null;
+        floorRepo.deleteById(id);
+        return "Floor deleted successfully!";
     }
 
     @Override
     public List<Floor> getAllFloors() {
-        return null;
+        return floorRepo.findAll();
     }
 }

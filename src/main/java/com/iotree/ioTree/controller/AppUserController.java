@@ -2,6 +2,7 @@ package com.iotree.ioTree.controller;
 
 import com.iotree.ioTree.domain.AppUser;
 import com.iotree.ioTree.service.impl.AppUserServiceImpl;
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

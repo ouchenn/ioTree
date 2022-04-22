@@ -18,26 +18,31 @@ public class DeviceServiceImpl implements IDeviceService {
 
     @Override
     public Device addDevice(Device device) {
-        return null;
+        return deviceRepo.save(device);
     }
 
     @Override
     public Device getDevice(String id) {
-        return null;
+        return deviceRepo.findById(id).orElse(null);
     }
 
     @Override
     public Device updateDevice(Device device) {
-        return null;
+        Device getDevice = deviceRepo.findById(device.getId()).orElse(null);
+        if(getDevice != null){
+            deviceRepo.save(device);
+        }
+        return device;
     }
 
     @Override
     public String deleteDevice(String id) {
-        return null;
+        deviceRepo.deleteById(id);
+        return "Device deleted successfully!";
     }
 
     @Override
     public List<Device> getAllDevices() {
-        return null;
+        return deviceRepo.findAll();
     }
 }
