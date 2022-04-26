@@ -28,9 +28,16 @@ jobs:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: ouchen/ioTree
+        image: ouchen/iotree
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+  - name: Deploy to Heroku
+    uses: AkhileshNS/heroku-deploy@v3.12.12
+    with:
+      heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      heroku_email: ${{secrets.HEROKU_EMAIL}}
+      heroku_app_name: ${{secrets.HEROKU_APP}}
