@@ -6,9 +6,13 @@ import com.iotree.ioTree.service.IAppUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -40,5 +44,12 @@ public class AppUserServiceImpl implements IAppUserService {
 
     public String bCryptPasswordEncoder(String password){
         return bCryptPasswordEncoder.encode(password);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        AppUser appUser = userRepo.findByUsername(username);
+        if (appUser == null) throw new UsernameNotFoundException("User with username : " +username+ " is not found!");
+        return new User(appUser.getUsername(), appUser.getPassword(), new ArrayList<>());
     }
 }
